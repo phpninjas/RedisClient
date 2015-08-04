@@ -3,7 +3,6 @@
 namespace phpninjas\Redis\Test;
 
 use phpninjas\Redis\RedisClient;
-use phpninjas\Redis\RedisTransaction;
 
 class RedisClientTest extends \PHPUnit_Framework_TestCase {
 
@@ -11,13 +10,14 @@ class RedisClientTest extends \PHPUnit_Framework_TestCase {
      * @var RedisClient
      */
     private $redis;
-    
+
 
     public function setUp(){
         $this->redis = new RedisClient("localhost");
     }
 
     public function teardown(){
+        $this->redis->flushDb();
     }
 
     public function testWrite(){

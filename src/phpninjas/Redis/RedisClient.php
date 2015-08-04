@@ -289,4 +289,12 @@ class RedisClient implements \ArrayAccess{
         return $this->read();
     }
 
+    /**
+     *
+     */
+    public function flushDb()
+    {
+        $this->send("FLUSHDB");
+    }
+
 }
